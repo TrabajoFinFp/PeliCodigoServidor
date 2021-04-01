@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="PeliCodigoServidor" transaction-type="RESOURCE_LOCAL">
+		<class>model.beans.Coleccion</class>
+		<class>model.beans.CollecionPelicula</class>
+		<class>model.beans.Pelicula</class>
+		<class>model.beans.Usuario</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://database-2.cskvnwd7g4bk.eu-west-3.rds.amazonaws.com:3306/peli?serverTimezone=UTC"/>
+			<property name="javax.persistence.jdbc.user" value="admin_fernando"/>
+			<property name="javax.persistence.jdbc.password" value="GBI55RCQ9y7dNPfm2MtX"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
