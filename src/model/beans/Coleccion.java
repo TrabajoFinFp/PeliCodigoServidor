@@ -50,8 +50,8 @@ public class Coleccion implements Serializable {
 		this.nameCollection = nameCollection;
 	}
 
-	public Usuario getUsuario() {
-		return this.usuario;
+	public String getUsuarioMail() {
+		return this.usuario.getMail();
 	}
 
 	public void setUsuario(Usuario usuario) {

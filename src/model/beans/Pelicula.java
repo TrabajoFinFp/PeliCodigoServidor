@@ -19,9 +19,7 @@ public class Pelicula implements Serializable {
 	@Column(name="IMDBID")
 	private String imdbid;
 
-	//bi-directional many-to-one association to CollecionPelicula
-	@OneToMany(mappedBy="pelicula")
-	private List<CollecionPelicula> collecionesPeliculas;
+	
 
 	public Pelicula() {
 	}
@@ -34,26 +32,5 @@ public class Pelicula implements Serializable {
 		this.imdbid = imdbid;
 	}
 
-	public List<CollecionPelicula> getCollecionesPeliculas() {
-		return this.collecionesPeliculas;
-	}
-
-	public void setCollecionesPeliculas(List<CollecionPelicula> collecionesPeliculas) {
-		this.collecionesPeliculas = collecionesPeliculas;
-	}
-
-	public CollecionPelicula addCollecionesPelicula(CollecionPelicula collecionesPelicula) {
-		getCollecionesPeliculas().add(collecionesPelicula);
-		collecionesPelicula.setPelicula(this);
-
-		return collecionesPelicula;
-	}
-
-	public CollecionPelicula removeCollecionesPelicula(CollecionPelicula collecionesPelicula) {
-		getCollecionesPeliculas().remove(collecionesPelicula);
-		collecionesPelicula.setPelicula(null);
-
-		return collecionesPelicula;
-	}
-
+	
 }

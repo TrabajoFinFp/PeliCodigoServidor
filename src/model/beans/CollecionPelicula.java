@@ -39,8 +39,8 @@ public class CollecionPelicula implements Serializable {
 		this.idCollecionesPeliculas = idCollecionesPeliculas;
 	}
 
-	public Coleccion getColeccione() {
-		return this.coleccione;
+	public String getColeccionesId() {
+		return this.coleccione.getIdColecciones();
 	}
 
 	public void setColeccione(Coleccion coleccione) {
