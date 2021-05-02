@@ -18,12 +18,12 @@ public class CollecionPelicula implements Serializable {
 	@Column(name="ID_COLLECIONES_PELICULAS")
 	private String idCollecionesPeliculas;
 
-	//bi-directional many-to-one association to Coleccion
+	//uni-directional many-to-one association to Coleccion
 	@ManyToOne
 	@JoinColumn(name="ID_COLECCIONES")
 	private Coleccion coleccione;
 
-	//bi-directional many-to-one association to Pelicula
+	//uni-directional many-to-one association to Pelicula
 	@ManyToOne
 	@JoinColumn(name="IMDBID")
 	private Pelicula pelicula;
@@ -39,8 +39,8 @@ public class CollecionPelicula implements Serializable {
 		this.idCollecionesPeliculas = idCollecionesPeliculas;
 	}
 
-	public String getColeccionesId() {
-		return this.coleccione.getIdColecciones();
+	public Coleccion getColeccione() {
+		return this.coleccione;
 	}
 
 	public void setColeccione(Coleccion coleccione) {

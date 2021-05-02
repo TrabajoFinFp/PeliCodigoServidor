@@ -1,8 +1,9 @@
 package model.beans;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.*;
 
 
 /**
@@ -22,15 +23,14 @@ public class Coleccion implements Serializable {
 	@Column(name="NAME_COLLECTION")
 	private String nameCollection;
 
-	//bi-directional many-to-one association to Usuario
+	//uni-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="MAIL")
 	private Usuario usuario;
 
-	//bi-directional many-to-one association to CollecionPelicula
-	@OneToMany(mappedBy="coleccione")
-	private List<CollecionPelicula> collecionesPeliculas;
-
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "coleccione", orphanRemoval = true)
+	private List<CollecionPelicula> colecionpelicula;
+	
 	public Coleccion() {
 	}
 
@@ -50,34 +50,12 @@ public class Coleccion implements Serializable {
 		this.nameCollection = nameCollection;
 	}
 
-	public String getUsuarioMail() {
-		return this.usuario.getMail();
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public List<CollecionPelicula> getCollecionesPeliculas() {
-		return this.collecionesPeliculas;
-	}
-
-	public void setCollecionesPeliculas(List<CollecionPelicula> collecionesPeliculas) {
-		this.collecionesPeliculas = collecionesPeliculas;
-	}
-
-	public CollecionPelicula addCollecionesPelicula(CollecionPelicula collecionesPelicula) {
-		getCollecionesPeliculas().add(collecionesPelicula);
-		collecionesPelicula.setColeccione(this);
-
-		return collecionesPelicula;
-	}
-
-	public CollecionPelicula removeCollecionesPelicula(CollecionPelicula collecionesPelicula) {
-		getCollecionesPeliculas().remove(collecionesPelicula);
-		collecionesPelicula.setColeccione(null);
-
-		return collecionesPelicula;
 	}
 
 }

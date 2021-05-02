@@ -2,7 +2,6 @@ package model.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -27,10 +26,6 @@ public class Usuario implements Serializable {
 
 	@Column(name="USERNAME")
 	private String username;
-
-	//bi-directional many-to-one association to Coleccion
-	@OneToMany(mappedBy="usuario")
-	private List<Coleccion> colecciones;
 
 	public Usuario() {
 	}
@@ -65,28 +60,6 @@ public class Usuario implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public List<Coleccion> getColecciones() {
-		return this.colecciones;
-	}
-
-	public void setColecciones(List<Coleccion> colecciones) {
-		this.colecciones = colecciones;
-	}
-
-	public Coleccion addColeccione(Coleccion coleccione) {
-		getColecciones().add(coleccione);
-		coleccione.setUsuario(this);
-
-		return coleccione;
-	}
-
-	public Coleccion removeColeccione(Coleccion coleccione) {
-		getColecciones().remove(coleccione);
-		coleccione.setUsuario(null);
-
-		return coleccione;
 	}
 
 }

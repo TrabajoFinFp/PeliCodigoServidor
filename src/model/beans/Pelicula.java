@@ -2,7 +2,6 @@ package model.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -19,8 +18,6 @@ public class Pelicula implements Serializable {
 	@Column(name="IMDBID")
 	private String imdbid;
 
-	
-
 	public Pelicula() {
 	}
 
@@ -32,5 +29,4 @@ public class Pelicula implements Serializable {
 		this.imdbid = imdbid;
 	}
 
-	
 }
