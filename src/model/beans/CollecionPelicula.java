@@ -24,7 +24,7 @@ public class CollecionPelicula implements Serializable {
 	private Coleccion coleccione;
 
 	//uni-directional many-to-one association to Pelicula
-	@ManyToOne
+	@ManyToOne//(cascade = CascadeType.PERSIST) 
 	@JoinColumn(name="IMDBID")
 	private Pelicula pelicula;
 

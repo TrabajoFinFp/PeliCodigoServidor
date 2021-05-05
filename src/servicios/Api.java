@@ -167,6 +167,12 @@ public class Api {
 			colleccionpelicula.setColeccione(em.find(Coleccion.class, coleccionid));
 			Pelicula pelicula = new Pelicula();
 			pelicula.setImdbid(imdbid);
+			/*tx.begin();
+			em.persist(pelicula);
+			tx.commit();*/
+			tx.begin();
+			em.merge(pelicula);
+			tx.commit();
 			colleccionpelicula.setPelicula(pelicula);
 			tx.begin();
 			em.persist(colleccionpelicula);
